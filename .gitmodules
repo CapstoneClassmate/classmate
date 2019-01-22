@@ -1,0 +1,4 @@
+[submodule "classmate-ui"]
+	path = classmate-ui
+	url = git@github.com:CapstoneClassmate/classmate-ui.git
+	branch = master
