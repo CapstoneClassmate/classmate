@@ -2,3 +2,6 @@
 	path = classmate-ui
 	url = git@github.com:CapstoneClassmate/classmate-ui.git
 	branch = master
+[submodule "classmate-endpoint"]
+	path = classmate-endpoint
+	url = git@github.com:CapstoneClassmate/classmate-endpoint.git
