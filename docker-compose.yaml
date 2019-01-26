@@ -1,0 +1,34 @@
+version: '2'
+services:
+  classmate-ui:
+    build: ./classmate-ui
+    command: npm run start
+    image: node:8
+    links: 
+      - classmate-endpoint
+    volumes:
+      - ./classmate-ui:/opt/service
+    working_dir: /opt/service/
+    ports:
+      - 3001:3000
+  classmate-endpoint:
+    image: node:8
+    build: ./classmate-endpoint
+    command: npm run start
+    volumes:
+      - ./classmate-endpoint:/opt/service
+    working_dir: /opt/service/
+    ports:
+      - 4000:4000
+    links:
+      - mongodb
+  mongodb:
+    image: mongo:3.4.13
+    command: mongod
+    ports:
+      - 27017:27017
+    volumes: 
+      - mongodb-volume:/data/db
+volumes: 
+  mongodb-volume:
+    driver: local
